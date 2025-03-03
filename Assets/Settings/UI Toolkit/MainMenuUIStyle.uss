@@ -1,0 +1,12 @@
+Buttons {
+    left: auto;
+    justify-content: flex-end;
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    width: 40%;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
