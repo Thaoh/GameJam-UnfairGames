@@ -141,7 +141,7 @@ MonoBehaviour:
   _modelTransform: {fileID: 5994428955975033895}
   _footstepEvent: {fileID: 11400000, guid: 8c6deaec0a4aa3b43a034e899355b620, type: 2}
   _footStepMinDelay: 0.3
-  _footStepMaxDelay: 0.6
+  _footStepMaxDelay: 0.5
 --- !u!114 &6538977994160375091
 MonoBehaviour:
   m_ObjectHideFlags: 0
