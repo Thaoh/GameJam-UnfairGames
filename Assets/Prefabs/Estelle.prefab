@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 19bcad00ca89b2749bd072a9c8d99184, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5879513807508236319}
   - component: {fileID: 6538977994160375091}
   - component: {fileID: 5526771506728448931}
+  - component: {fileID: 2478205844422873524}
   m_Layer: 0
   m_Name: Estelle
   m_TagString: Untagged
@@ -134,8 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9ea2509c38299b4eb6a3a6ad3eeccc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkingAnimation: {fileID: 6538977994160375091}
-  IdleAnimation: {fileID: 0}
+  _walkingAnimation: {fileID: 6538977994160375091}
+  _idleAnimation: {fileID: 5526771506728448931}
+  _flyingAnimation: {fileID: 2478205844422873524}
+  _modelTransform: {fileID: 5994428955975033895}
 --- !u!114 &6538977994160375091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +161,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 10d04460ef4135c4abdfcca9bbef2665, type: 3}
   _image: {fileID: 0}
   _spriteRenderer: {fileID: 9155378011452837893}
+  _repeating: 1
+  _pingpong: 0
 --- !u!114 &5526771506728448931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,9 +177,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animationName: Idle
   Animating: 1
-  _framesPerSecond: 2
+  _framesPerSecond: 3.5
   _sprites:
-  - {fileID: 21300000, guid: 777f413e1ddc8c743a2d5ddcabbe47d8, type: 3}
-  - {fileID: 21300000, guid: debe3c04d8aa1df4aa864defbf9b6f05, type: 3}
+  - {fileID: 21300000, guid: f32cf2386117773488bdf89726356ae0, type: 3}
+  - {fileID: 21300000, guid: 11eb1d677847f974c85a4d73f5aec224, type: 3}
+  - {fileID: 21300000, guid: 587e260ce5de9aa4eba2cde5c014e41a, type: 3}
+  - {fileID: 21300000, guid: 11eb1d677847f974c85a4d73f5aec224, type: 3}
+  - {fileID: 21300000, guid: f32cf2386117773488bdf89726356ae0, type: 3}
+  - {fileID: 21300000, guid: 11eb1d677847f974c85a4d73f5aec224, type: 3}
+  - {fileID: 21300000, guid: 587e260ce5de9aa4eba2cde5c014e41a, type: 3}
+  - {fileID: 21300000, guid: 92b44c894aeeb3446b1a7089f9402f98, type: 3}
   _image: {fileID: 0}
   _spriteRenderer: {fileID: 9155378011452837893}
+  _repeating: 0
+  _pingpong: 1
+--- !u!114 &2478205844422873524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737836541839184123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbcfd4bdfe62cd489747f9fb74013bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationName: Flying
+  Animating: 0
+  _framesPerSecond: 0
+  _sprites: []
+  _image: {fileID: 0}
+  _spriteRenderer: {fileID: 9155378011452837893}
+  _repeating: 1
+  _pingpong: 0
