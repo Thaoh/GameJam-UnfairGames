@@ -1,0 +1,16 @@
+#
+# Sprite sheet data for Unity.
+#
+# To import these sprites into your Unity project, download "TexturePackerImporter":
+# https://assetstore.unity.com/packages/tools/sprite-management/texturepacker-importer-16641
+#
+# created with Free texture packer v0.6.7
+# http://free-tex-packer.com
+#
+:format=40300
+:texture=texture-3.png
+:size=1132x1990
+:pivotpoints=enabled
+:borders=disabled
+
+IMG_3794.PNG;0;0;1132;1990; 0.5;0.5; 0;0;0;0

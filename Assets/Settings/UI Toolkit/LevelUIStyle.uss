@@ -1,0 +1,19 @@
+.dialogue {
+    background-color: rgba(0, 0, 0, 0.47);
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 200px;
+    padding-top: 76px;
+    padding-right: 46px;
+    padding-bottom: 61px;
+    padding-left: 52px;
+    margin-top: 30px;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    -unity-text-align: upper-left;
+    -unity-font-style: bold;
+}
