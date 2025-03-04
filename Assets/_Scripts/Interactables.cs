@@ -8,7 +8,7 @@ public class Interactables : MonoBehaviour
     public TMP_Text dialougeText;
     public string[] dialouge;
     public bool isDialougeActive = false;
-    public int lineNumber;
+    public int lineNumber = 0;
 
     public bool outlineEnabled = false;
     private Outline objectOutline;
@@ -17,7 +17,7 @@ public class Interactables : MonoBehaviour
     void Start()
     {
         dialougeBox = GameObject.Find("DialogueBox");
-        dialougeText = GameObject.Find("DialogueText").GetComponent<TMP_Text>();
+        dialougeText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
         dialougeBox.SetActive(false);
 
         objectOutline = GetComponent<Outline>();
@@ -27,20 +27,6 @@ public class Interactables : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (lineNumber < dialouge.Length)
-        {
-            NextLine();
-        }
-        else
-        {
-            dialougeBox.GetComponent<RawImage>().enabled = false;
-            dialougeText.enabled = false;
-            lineNumber = 0;
-        }
-    }
 
     private void OnMouseDown()
     {
@@ -49,20 +35,11 @@ public class Interactables : MonoBehaviour
             if (!dialougeBox.activeSelf)
             {
                 dialougeBox.SetActive(true);
-                NextLine();
+                
             }
-            else
-            {
-                if (lineNumber < dialouge.Length)
-                {
-                    NextLine();
-                }
-                else
-                {
-                    dialougeBox.SetActive(false);
-                    lineNumber = 0;
-                }
-            }
+            
+            NextLine();
+
         }
     }
 
@@ -85,12 +62,22 @@ public class Interactables : MonoBehaviour
 
     void NextLine()
     {
+        if (dialouge.Length == 0)
+        {
+            return; 
+        }
+        
         if (lineNumber < dialouge.Length)
         {
             dialougeBox.GetComponent<RawImage>().enabled = true;
             dialougeText.enabled = true;
             dialougeText.text = dialouge[lineNumber];
             lineNumber++;
+        }
+        else
+        {
+            dialougeBox.SetActive(false);
+            lineNumber = 0;
         }
     }
 
