@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 437433156}
   - component: {fileID: 437433155}
   m_Layer: 0
-  m_Name: Garage_Body
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1409,8 +1409,8 @@ SceneRoots:
   - {fileID: 437433158}
   - {fileID: 704753890}
   - {fileID: 1500710648}
-  - {fileID: 1065190890}
-  - {fileID: 1394351661}
   - {fileID: 7142596093339993049}
   - {fileID: 1868719913}
   - {fileID: 755269402}
+  - {fileID: 1065190890}
+  - {fileID: 1394351661}
