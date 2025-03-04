@@ -1,0 +1,10 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Settings/UI%20Toolkit/MainMenuUIStyle.uss?fileID=7433441132597879392&amp;guid=dee3d3802f4ea0f4f87500a5ca560105&amp;type=3#MainMenuUIStyle" />
+    <engine:VisualElement name="Container" style="flex-grow: 1; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px;">
+        <engine:Label text="Quest for Grandpa" style="font-size: 72px; -unity-font-style: bold; -unity-text-outline-color: rgb(0, 0, 0); color: rgb(255, 255, 255); -unity-text-align: middle-center;" />
+        <engine:VisualElement name="MainMenu" style="flex-grow: 1; width: 400px; align-self: center; -unity-text-align: middle-center; justify-content: center; height: auto; margin-bottom: 0;">
+            <engine:Button text="Find Grandpa" name="Play" style="align-self: auto; justify-content: center; align-items: center; height: 200px; font-size: 40px; -unity-font-style: bold; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; margin-bottom: 50px;" />
+            <engine:Button text="I can&apos;t find them, good bye" name="Exit" style="align-self: auto; align-items: center; justify-content: flex-end; height: 200px; font-size: 40px; -unity-font-style: bold; white-space: normal; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; background-color: rgb(87, 87, 87); color: rgb(253, 253, 253);" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>
