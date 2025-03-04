@@ -1,0 +1,9 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Settings/UI%20Toolkit/LevelUIStyle.uss?fileID=7433441132597879392&amp;guid=990e536cfaadaa347baea61540c958de&amp;type=3#LevelUIStyle" />
+    <engine:VisualElement name="Container" style="flex-grow: 1;">
+        <engine:VisualElement name="Spacer" style="flex-grow: 1; height: 829px;" />
+        <engine:VisualElement name="Dialogue" class="dialogue" style="flex-grow: 1; left: auto; margin-left: 100px; margin-right: 100px; margin-bottom: 20px; margin-top: 30px; padding-left: 52px; padding-top: 22px; padding-bottom: 20px; padding-right: 40px; -unity-background-scale-mode: stretch-to-fill; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-left-radius: 50px; transition-property: opacity; transition-duration: 2s; transition-timing-function: ease-in;">
+            <engine:Label text="Label" name="DialogueLabel" style="height: 129px; transition-property: opacity; transition-timing-function: ease-in-sine; transition-duration: 1s; white-space: normal;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0412690adcf2964cae0c563502e59cc, type: 3}
+  m_Name: SFX_Pickup_Item
+  m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 8300000, guid: a227c756376ee734eb2ab1728002203c, type: 3}
+  - {fileID: 8300000, guid: 594af30b5d205a1448c3e7a11f7c3b22, type: 3}
+  - {fileID: 8300000, guid: 31e053e250af7764f89e39857098b0e2, type: 3}
+  _volume:
+    minValue: 0.4
+    maxValue: 0.6
+  _pitch:
+    minValue: 0.8479288
+    maxValue: 1.1479287
