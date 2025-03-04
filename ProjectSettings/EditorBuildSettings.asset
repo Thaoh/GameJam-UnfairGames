@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GarageScene.unity
     guid: fd7d77620e4399b488dd74fe710c0666
+  - enabled: 1
+    path: Assets/Scenes/003 Flying.unity
+    guid: 10ceee3da0592c043ad96d2a2ba85677
+  - enabled: 1
+    path: Assets/Scenes/004 Store.unity
+    guid: 53a5522d65fc63841bb32d980e6938a5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

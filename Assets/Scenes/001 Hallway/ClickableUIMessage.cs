@@ -20,7 +20,6 @@ public class ClickableUIMessage : Clickable {
 	}
 
 	protected override void PerformAction(Collider2D hitCollider) {
-		Debug.Log(hitCollider.name + " : " + _messages[_currentMessageIndex]);
 		if (_shuffle) {
 			_messageIndex = Random.Range(0, _messages.Length);
 		}
