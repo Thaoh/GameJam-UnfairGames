@@ -20,8 +20,8 @@ public class SoundPlayer : MonoBehaviour {
 
 	private void ChangeAmbiance(Scene arg0, LoadSceneMode arg1) {
 		if (_ambiancesDictionary.TryGetValue(arg0.name, out var value)) {
-			Debug.Log($"Ambiance changed {value.name}");
 			_ambienceSource.clip = value;
+			_ambienceSource.Play();
 		}
 	}
 }
