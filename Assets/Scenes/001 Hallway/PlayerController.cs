@@ -19,15 +19,25 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField] private Transform _modelTransform;
 	[SerializeField] private AudioEvent _footstepEvent;
 	
+	[Header("Timing")]
+	[SerializeField] private float _footStepMinDelay = 0.2f;
+	[SerializeField] private float _footStepMaxDelay = 0.4f;
+	
 	private Vector3 _nextLocation;
 	private Vector3 _targetPosition;
 	
 	private AnimationState _state = AnimationState.Idle;
+	private float _nextFootStepTime;
 	
 	private Location[] _locations;
+	private AudioSource _sfxSource;
 	private void Awake() {
 		OnStateChanged += HandleAnimationState;
 		_locations = FindObjectsOfType<Location>();
+	}
+
+	private void Start() {
+		_sfxSource = SoundPlayer.GetSFXSource;
 	}
 
 	private void OnDestroy() {
@@ -40,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 				_walkingAnimation.Animating = true;
 				_idleAnimation.Animating = false;
 				_flyingAnimation.Animating = false;
+				_nextFootStepTime = Time.realtimeSinceStartup + Random.Range( _footStepMinDelay, _footStepMaxDelay );
 				break;
 			case AnimationState.Idle:
 				_walkingAnimation.Animating = false;
@@ -121,6 +132,14 @@ public class PlayerController : MonoBehaviour {
 			}
 			
 			transform.position = Vector3.MoveTowards( transform.position,_nextLocation, Time.deltaTime * 2 );
+			PlayWalkingSound();
+		}
+	}
+
+	private void PlayWalkingSound() {
+		if (Time.realtimeSinceStartup > _nextFootStepTime) {
+			_footstepEvent.Play( _sfxSource );
+			_nextFootStepTime = Time.realtimeSinceStartup + Random.Range( _footStepMinDelay, _footStepMaxDelay );
 		}
 	}
 

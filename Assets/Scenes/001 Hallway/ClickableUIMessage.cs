@@ -4,7 +4,7 @@ using UnityEngine.Serialization;
 public class ClickableUIMessage : Clickable {
 	[SerializeField] private string _prefix;
 	[SerializeField] string[] _messages;
-	[SerializeField] bool _repeating;
+	[SerializeField] private bool _repeating;
 	[SerializeField] private bool _shuffle;
 	private int _currentMessageIndex;
 

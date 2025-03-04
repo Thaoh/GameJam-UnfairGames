@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SFX_Footstep_Stairs
   m_EditorClassIdentifier: 
   _clips:
-  - {fileID: 8300000, guid: 11863b8e55de5624cad9ffa4456d0e79, type: 3}
+  - {fileID: 8300000, guid: 93dd6559a37966a4993df08c97202457, type: 3}
   _volume:
     minValue: 0.4
     maxValue: 0.6
