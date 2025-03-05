@@ -1554,6 +1554,7 @@ GameObject:
   - component: {fileID: 1500710646}
   - component: {fileID: 1500710649}
   - component: {fileID: 1500710645}
+  - component: {fileID: 1500710650}
   m_Layer: 0
   m_Name: Workbench
   m_TagString: Untagged
@@ -1657,7 +1658,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500710644}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87c21550668cddd46ac62f64cb8525b5, type: 3}
   m_Name: 
@@ -1670,6 +1671,24 @@ MonoBehaviour:
   isDialougeActive: 0
   lineNumber: 0
   outlineEnabled: 1
+--- !u!114 &1500710650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500710644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9899c00e425620d4ca817d22e8ec6cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefix: 'Estelle: '
+  _messages:
+  - That's one of Grandpa's benches. I don't think the batterieries are inside.
+  - The batteries may be beside the bench.
+  _repeating: 1
+  _shuffle: 0
 --- !u!1 &1522703346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1917,7 +1936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1832007025}
   - component: {fileID: 1832007024}
-  - component: {fileID: 1832007023}
+  - component: {fileID: 1832007026}
   m_Layer: 0
   m_Name: Loc_Right
   m_TagString: Untagged
@@ -1925,42 +1944,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1832007023
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1832007022}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!114 &1832007024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,12 +1965,35 @@ Transform:
   m_GameObject: {fileID: 1832007022}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.637, y: 1.1699998, z: -1.081}
+  m_LocalPosition: {x: 5.637, y: 0.07, z: -1.081}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1832007026
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832007022}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1848977238
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,6 +2336,7 @@ GameObject:
   - component: {fileID: 2117790532}
   - component: {fileID: 2117790531}
   - component: {fileID: 2117790530}
+  - component: {fileID: 2117790535}
   m_Layer: 0
   m_Name: Workbench (1)
   m_TagString: Untagged
@@ -2365,7 +2372,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117790529}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87c21550668cddd46ac62f64cb8525b5, type: 3}
   m_Name: 
@@ -2446,6 +2453,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &2117790535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117790529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9899c00e425620d4ca817d22e8ec6cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefix: 'Estelle: '
+  _messages:
+  - That's also one of grandpa's benches. I don't see the batteries on there.
+  - I need to look around the room to see if I can find the batteries.
+  _repeating: 0
+  _shuffle: 0
 --- !u!1001 &7142596093339993049
 PrefabInstance:
   m_ObjectHideFlags: 0
