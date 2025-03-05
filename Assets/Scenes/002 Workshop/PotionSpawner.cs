@@ -9,6 +9,7 @@ public class PotionSpawner : MonoBehaviour {
 	[SerializeField] private int _potionBase = 100;
 	[SerializeField] private RangedFloat _potionMultiplier = new(0.4f, 0.7f);
 	[SerializeField] private bool _randomPositionInBounds = false;
+	[SerializeField] private Transform _itemParent;
 	private Bounds _bounds;
 
 	private void Awake() {
@@ -35,6 +36,10 @@ public class PotionSpawner : MonoBehaviour {
 			potion.Sprite.color = Random.ColorHSV(0.3f, 1f, 0.3f, 1f, 1f, 1f);
 
 			potion.Sprite.sortingOrder = 2 + potionIndex;
+		}
+
+		if (_itemParent != null) {
+			newSpawn.transform.SetParent(_itemParent);
 		}
 	}
 

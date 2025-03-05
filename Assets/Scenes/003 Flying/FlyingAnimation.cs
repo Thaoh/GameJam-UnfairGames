@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FlyingAnimation : MonoBehaviour
 {
@@ -8,6 +10,11 @@ public class FlyingAnimation : MonoBehaviour
 
     [SerializeField] private AnimationCurve _floatCurve; // Animation curve for the floating motion
     private float _timeElapsed;
+    private float _originalY;
+    private void Awake() {
+        _originalY = _modelTransform.localPosition.y;
+        _timeElapsed = Random.Range(0.4f, 6f);
+    }
 
     /*void Start () {
         // Create a sinusoidal curve for smooth floating motion
@@ -28,6 +35,6 @@ public class FlyingAnimation : MonoBehaviour
 
         // Apply the animation curve to move the RectTransform up and down
         var yOffset = _floatCurve.Evaluate(time) * _floatAmplitude;
-        _modelTransform.localPosition = new Vector3(_modelTransform.position.x, yOffset, _modelTransform.position.z);
+        _modelTransform.localPosition = new Vector3(_modelTransform.position.x, _originalY+yOffset, _modelTransform.position.z);
     }
 }
