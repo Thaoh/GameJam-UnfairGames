@@ -6,7 +6,6 @@ public class Location : Clickable {
 	public Action OnClick;
 	private Transform _moveTarget = null;
 
-
 	protected override void Awake() {
 		base.Awake();
 		_playerController = GameObject.FindAnyObjectByType<PlayerController>();
@@ -35,7 +34,5 @@ public class Location : Clickable {
 		}
 	}
 
-	public Transform MoveTarget {
-		get { return _moveTarget; }
-	}
+	public Transform MoveTarget { get { return _moveTarget; } }
 }
