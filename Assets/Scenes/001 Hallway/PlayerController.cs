@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour {
 			if (location.MoveTarget == null) {
 				_locationsDictionary.Add( location.transform.position, location );
 			} else {
-				_locationsDictionary.Add( location.MoveTarget.transform.position, location );
+				_locationsDictionary.Add( location.MoveTarget.TransformPoint(location.MoveTarget.transform.position), location );
 			}
 		}
 		
@@ -100,7 +100,8 @@ public class PlayerController : MonoBehaviour {
 		
 		_targetLocation = gotoLocation;
 		if (_targetLocation != null && _targetLocation.MoveTarget != null) {
-			_targetPosition = _targetLocation.MoveTarget.transform.position;
+			_targetPosition = _targetLocation.MoveTarget.TransformPoint( _targetLocation.MoveTarget.position );
+			Debug.LogWarning($"PlayerController: MoveTarget Exists: {_targetLocation.MoveTarget.name}");
 		} else {
 			_targetPosition = _targetLocation.transform.position;
 		}
@@ -131,7 +132,11 @@ public class PlayerController : MonoBehaviour {
 			//		Check if this location is closer than the current closest
 			if ( distanceToLocation > 1f && Vector3.Dot(directionToTarget, toLocation.normalized) > 0.5f && distanceToLocation < closestDistance ) {
 				closestDistance = distanceToLocation;
-				_nextLocation = locationPosition;
+				if (location != null && location.MoveTarget != null) {
+					_nextLocation = location.MoveTarget.TransformPoint(location.MoveTarget.position);
+				} else {
+					_nextLocation = locationPosition;
+				}
 			}
 		}
 

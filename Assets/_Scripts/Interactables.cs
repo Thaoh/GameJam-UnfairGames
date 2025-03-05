@@ -16,10 +16,6 @@ public class Interactables : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        dialougeBox = GameObject.Find("DialogueBox");
-        dialougeText = GameObject.Find("DialogueText")?.GetComponent<TMP_Text>();
-        dialougeBox.SetActive(false);
-
         objectOutline = GetComponent<Outline>();
         if (objectOutline != null)
         {
