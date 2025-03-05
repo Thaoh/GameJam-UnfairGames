@@ -13,4 +13,9 @@ public class Location : Clickable {
 			_playerController.SetDestination(this);
 		}
 	}
+	protected override void PerformAction( Collider hitCollider ) {
+		if (hitCollider != null) {
+			_playerController.SetDestination(this);
+		}
+	}
 }
