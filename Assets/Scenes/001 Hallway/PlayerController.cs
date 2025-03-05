@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
 
@@ -44,19 +45,28 @@ public class PlayerController : MonoBehaviour {
 
 	private void Awake() {
 		OnStateChanged += HandleAnimationState;
-		_locations = Object.FindObjectsByType<Location>( FindObjectsSortMode.None );
 
-		foreach ( Location location in _locations ) {
-			_locationsDictionary.Add( location.transform.position, location );
-		}
+		SceneManager.sceneLoaded += Initialize;
 	}
 
-	private void Start() {
+	private void Initialize(Scene arg0, LoadSceneMode arg1) {
+		_locations = Object.FindObjectsByType<Location>( FindObjectsSortMode.None );
+		_locationsDictionary.Clear();
+			
+		foreach ( Location location in _locations ) {
+			if (location.MoveTarget == null) {
+				_locationsDictionary.Add( location.transform.position, location );
+			} else {
+				_locationsDictionary.Add( location.MoveTarget.transform.position, location );
+			}
+		}
+		
 		_sfxSource = SoundPlayer.GetSFXSource;
 	}
 
 	private void OnDestroy() {
 		OnStateChanged -= HandleAnimationState;
+		SceneManager.sceneLoaded -= Initialize;
 	}
 
 	public void HandleAnimationState( AnimationState state ) {
@@ -87,8 +97,13 @@ public class PlayerController : MonoBehaviour {
 
 	public void SetDestination( Location gotoLocation ) {
 		_startPosition = transform.position;
+		
 		_targetLocation = gotoLocation;
-		_targetPosition = _targetLocation.transform.position;
+		if (_targetLocation != null && _targetLocation.MoveTarget != null) {
+			_targetPosition = _targetLocation.MoveTarget.transform.position;
+		} else {
+			_targetPosition = _targetLocation.transform.position;
+		}
 
 		if ( Vector3.Distance( transform.position, _targetPosition ) <= 0.1f ) {
 			State = AnimationState.Idle;

@@ -4,9 +4,7 @@ using UnityEngine;
 public class FadeController : MonoBehaviour {
     [SerializeField] private AnimationCurve _fadeCurve;
     [SerializeField] private SpriteRenderer _fadeOverlay;
-    [SerializeField] private float _fadeStartDistance = 0.4f;
 
-    
     private float _fadeMaxByTime = Mathf.Infinity;
     private float _fadeDelay;
     private bool _isRendering = false;
