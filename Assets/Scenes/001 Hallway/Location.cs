@@ -10,7 +10,7 @@ public class Location : Clickable {
 
 	protected override void PerformAction( Collider2D hitCollider ) {
 		if (hitCollider != null) {
-			_playerController.GoTo(this);
+			_playerController.SetDestination(this);
 		}
 	}
 }

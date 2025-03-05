@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour {
 
 #region Movement
 
-	public void GoTo( Location gotoLocation ) {
+	public void SetDestination( Location gotoLocation ) {
 		_startPosition = transform.position;
 		_targetLocation = gotoLocation;
 		_targetPosition = _targetLocation.transform.position;
@@ -97,24 +97,26 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		FlipSpriteBasedOnDirection();
-		GoToClosestLocationTowardsTarget();
+		FindClosestLocationWaypoint();
 		State = AnimationState.Walking;
 	}
 
-	private void GoToClosestLocationTowardsTarget() {
+	private void FindClosestLocationWaypoint() {
 		float closestDistance = Mathf.Infinity;
 		_nextLocation = Vector3.zero; // Reset target location
 
 		foreach ( var location in _locations ) {
 			Vector3 locationPosition = location.transform.position;
-
-			// Calculate the distance to the location
-			float distanceToLocation = Vector3.Distance( transform.position, locationPosition );
-
-			// Check if this location is closer than the current closest
-			if ( distanceToLocation < closestDistance ) {
+			Vector3 toLocation = locationPosition - transform.position;
+			Vector3 directionToTarget = (_targetPosition - transform.position).normalized;
+			float distanceToLocation = toLocation.magnitude;
+			
+			// Make sure the closest doesn't become the loc you're standing on &
+			//		Check that the target is in the general direction of the target &
+			//		Check if this location is closer than the current closest
+			if ( distanceToLocation > 1f && Vector3.Dot(directionToTarget, toLocation.normalized) > 0.5f && distanceToLocation < closestDistance ) {
 				closestDistance = distanceToLocation;
-				_nextLocation = locationPosition; // Update the target location
+				_nextLocation = locationPosition;
 			}
 		}
 
@@ -138,15 +140,16 @@ public class PlayerController : MonoBehaviour {
 	private void Update() {
 		if ( State == AnimationState.Walking ) {
 			// Move towards the next location
-			transform.position = Vector3.MoveTowards( transform.position, _nextLocation, Time.deltaTime * 2 );
+			transform.position = Vector3.MoveTowards(transform.position, _nextLocation, Time.deltaTime * 2);
 
 			// Check if the character has reached the next location
 			if ( Vector3.Distance( _nextLocation, transform.position ) <= 0.2f ) {
 				if (_targetPosition != _nextLocation && Vector3.Distance( _targetPosition, transform.position ) > 0.2f) {
-					GoTo(  _locationsDictionary[_targetPosition]); // Move to the target position
+					SetDestination(  _locationsDictionary[_targetPosition]); // Move to the target position
+				} else {
+					transform.position = _nextLocation;
+					State = AnimationState.Idle; // Set to idle if we reached the target
 				}
-				
-				State = AnimationState.Idle; // Set to idle if we reached the target
 				
 				// Handle door animation if applicable
 				if ( _targetLocation != null && _targetLocation.TryGetComponent( out FadeSceneLoader doorAnimation ) ) {
