@@ -833,8 +833,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 979178861
+  m_SortingLayer: 1
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: a0082971c701bb540985e5f84b8278f8, type: 3}
   m_Color: {r: 0.103773594, g: 0.051806565, b: 0, a: 0}
@@ -943,6 +943,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1556651240}
+  - component: {fileID: 1556651241}
   m_Layer: 0
   m_Name: FadeToBlack
   m_TagString: Untagged
@@ -966,6 +967,44 @@ Transform:
   - {fileID: 1065372815}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1556651241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556651239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3baaca077eeff74418a584605d7b976a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _fadeOverlay: {fileID: 1065372816}
+  _fadeStartDistance: 0.4
 --- !u!1 &1770370185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1724,13 +1763,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2447505510874132164, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: '_messages.Array.data[1]'
+      value: Grampa is not home. I should go look for him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791978550100166478, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791978550100166478, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.096
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791978550100166478, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.229
+      objectReference: {fileID: 0}
+    - target: {fileID: 2791978550100166478, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3577553397660794910, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103005746783232351, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4435516025357418428, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.21
       objectReference: {fileID: 0}
     - target: {fileID: 4435516025357418428, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.74
+      value: -1.431
       objectReference: {fileID: 0}
     - target: {fileID: 4435516025357418428, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1762,6 +1829,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4435516025357418428, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5357528530318662601, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7253446823496174698, guid: edb564cd781f33f4e9e99e614f6ef29a, type: 3}

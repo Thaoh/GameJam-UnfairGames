@@ -20,14 +20,18 @@ public class FadeSceneLoader : MonoBehaviour {
 		if ( !_checkFadeDistance ) {
 			return;
 		}
-		
 		if (Vector3.Distance(_playerController.transform.position, transform.position) >= _fadeStartDistance) {
 			_fadeMaxByTime = Time.realtimeSinceStartup + _fadeTime;
 			return;
 		}
+		FadeByTime(_fadeMaxByTime);
+	}
+
+	private void FadeByTime(float fadebyTime) {
 		
-		if (Time.realtimeSinceStartup <= _fadeMaxByTime ) {
-			float fadeStart = _fadeMaxByTime - _fadeTime;
+
+		if (Time.realtimeSinceStartup <= fadebyTime ) {
+			float fadeStart = fadebyTime - _fadeTime;
 			float fadeRatio = (Time.realtimeSinceStartup - fadeStart) / _fadeTime;
 
 			float alpha = _fadeCurve.Evaluate(fadeRatio);
@@ -36,7 +40,7 @@ public class FadeSceneLoader : MonoBehaviour {
 			SetAlpha(1f);
 			NextScene();
 		}
-    }
+	}
 
 	private void SetAlpha( float alpha ) {
 		_fadeOverlay.color = new Color(0f, 0f, 0f, alpha);
