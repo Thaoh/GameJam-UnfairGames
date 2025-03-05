@@ -198,6 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7612414861522028218}
   - component: {fileID: 6816749303010261554}
+  - component: {fileID: 1247710298832478146}
   m_Layer: 0
   m_Name: Estelle
   m_TagString: Untagged
@@ -268,6 +269,25 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.53967714, y: 1.848172}
   m_EdgeRadius: 0
+--- !u!114 &1247710298832478146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622268179478850579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee56b5f4209426740bc01ac895e4a2b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prefix: 'Estelle: '
+  _messages:
+  - My broom is out of power, I should find new batteries.
+  - Low energy, I think there's more batteries in Grandpa's workshop.
+  - Can't go. Need more energy, I think we can find that in the workshop.
+  _repeating: 0
+  _shuffle: 1
 --- !u!1 &2039897855503353912
 GameObject:
   m_ObjectHideFlags: 0
