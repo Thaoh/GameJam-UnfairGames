@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FlyingController : MonoBehaviour
@@ -16,6 +17,15 @@ public class FlyingController : MonoBehaviour
     void Update()
     {
         Movement();
+        BoundsEnforcer();
+    }
+
+    private void BoundsEnforcer()
+    {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, - 13f, 1.5f), 
+            Mathf.Clamp(transform.position.y, - 5.38f, 2.312f), 
+            transform.position.z
+        );
     }
 
     private void Movement()
