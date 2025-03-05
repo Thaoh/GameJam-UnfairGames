@@ -1,9 +1,10 @@
 
 using Eflatun.SceneReference;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EstelleBroom : ClickableUIMessage {
-	[SerializeField] private AudioEvent _startBroomEvent;
+	[FormerlySerializedAs("_startBroomEvent")] [SerializeField] private AudioEvent _configuredSoundEvent;
 	[SerializeField] private SceneReference _nextLevel;
 	[SerializeField] private float _levelChangeDelay = 5f;
 
@@ -18,18 +19,35 @@ public class EstelleBroom : ClickableUIMessage {
 	protected override void Update() {
 		base.Update();
 		
-		if (GameManager.EnergySourcePickedUp && Time.realtimeSinceStartup >= _levelChangedByTime) {
+		if (Condition() && Time.realtimeSinceStartup >= _levelChangedByTime) {
 			GameManager.LoadLevel(_nextLevel);
 		}
 	}
 
+	protected virtual bool Condition() {
+		return GameManager.EnergySourcePickedUp;
+	}
+
 	protected override void PerformAction(Collider2D hitCollider) {
-		if (GameManager.EnergySourcePickedUp) {
-			_startBroomEvent.Play(SoundPlayer.GetSFXSource);
+		if (Condition()) {
+			PlayConfiguredSoundEvent();
 			_levelChangedByTime = Time.realtimeSinceStartup + _levelChangeDelay;
 			_fadeController.StartFade(_levelChangedByTime, _levelChangeDelay);
 		} else {
 			base.PerformAction(hitCollider);	
 		}
+	}
+	protected override void PerformAction(Collider hitCollider) {
+		if (Condition()) {
+			PlayConfiguredSoundEvent();
+			_levelChangedByTime = Time.realtimeSinceStartup + _levelChangeDelay;
+			_fadeController.StartFade(_levelChangedByTime, _levelChangeDelay);
+		} else {
+			base.PerformAction(hitCollider);	
+		}
+	}
+
+	protected virtual void PlayConfiguredSoundEvent() {
+		_configuredSoundEvent.Play(SoundPlayer.GetSFXSource);
 	}
 }

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class Clickable : MonoBehaviour {
 	private Camera _mainCamera;
@@ -7,6 +9,14 @@ public abstract class Clickable : MonoBehaviour {
 	private Collider _collider;
 
 	protected virtual void Awake() {
+		SceneManager.sceneLoaded += Initialize;
+	}
+
+	private void OnDestroy() {
+		SceneManager.sceneLoaded -= Initialize;
+	}
+
+	private void Initialize(Scene arg0, LoadSceneMode arg1) {
 		_collider2D = GetComponent<Collider2D>();
 		_collider = GetComponent<Collider>();
 		_mainCamera = Camera.main;
@@ -27,7 +37,8 @@ public abstract class Clickable : MonoBehaviour {
 				}	
 			} else if (_collider != null) {
 				Vector2 mousePosition = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-				if (Physics.Raycast(mousePosition, _mainCamera.transform.position - Input.mousePosition, out RaycastHit hit) && hit.collider == _collider) {
+				Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+				if (Physics.Raycast(ray, out RaycastHit hit, 200f) && hit.collider == _collider) {
 					PerformAction(hit.collider);
 				}	
 			}
