@@ -6,6 +6,7 @@ public class UIManager : MonoBehaviour {
 	public static UIManager Instance;
 	[SerializeField] private UIDocument _mainUIDocument;
 	[SerializeField] private float _letterDelay = 0.2f;
+	[SerializeField] private float _displayUITimeout = 5f;
 	
 	private VisualElement _root;
 	private VisualElement _container;
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour {
 	private bool _rendering;
 	private float _nextLetterTime;
 	private string _prefix = "";
+	private float _disappearAtTime;
 
 	private void Awake() {
 		if (Instance == null) {
@@ -32,7 +34,14 @@ public class UIManager : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (_rendering == false || Time.realtimeSinceStartup <= _nextLetterTime || _nextMessage == "" || _nextMessage == null) {
+		if (_rendering == false) {
+			if (Time.realtimeSinceStartup >= _disappearAtTime) {
+				SetDialogue();
+			}
+			return;
+		}
+		
+		if ( Time.realtimeSinceStartup <= _nextLetterTime || _nextMessage == "" || _nextMessage == null) {
 			return;
 		}
 
@@ -44,6 +53,7 @@ public class UIManager : MonoBehaviour {
 		_nextMessage = _nextMessage.Substring(1);
 
 		_nextLetterTime = Time.realtimeSinceStartup + _letterDelay;
+		_disappearAtTime = Time.realtimeSinceStartup + _displayUITimeout;
 		
 		if (_nextMessage.Length == 0) {
 			_rendering = false;

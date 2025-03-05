@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ClickableUIMessage : Clickable {
 	[SerializeField] private string _prefix;
@@ -22,10 +21,12 @@ public class ClickableUIMessage : Clickable {
 	protected override void PerformAction(Collider2D hitCollider) {
 		if (_shuffle) {
 			_messageIndex = Random.Range(0, _messages.Length);
+		} else {
+			_messageIndex++;
 		}
 
 		if (_messageIndex < _messages.Length) {
-			UIManager.SetDialogue(_messages[_messageIndex++], _prefix);
+			UIManager.SetDialogue(_messages[_messageIndex], _prefix);
 		}
 	}
 }
