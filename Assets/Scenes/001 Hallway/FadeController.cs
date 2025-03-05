@@ -9,6 +9,7 @@ public class FadeController : MonoBehaviour {
     
     private float _fadeMaxByTime = Mathf.Infinity;
     private float _fadeDelay;
+    private bool _isRendering = false;
     public static Action OnFadeComplete { get; set; } = delegate { };
 
     private void Update() {
@@ -16,7 +17,12 @@ public class FadeController : MonoBehaviour {
     }
 
     private void FadeByTime() {
-		if (Time.realtimeSinceStartup <= _fadeMaxByTime ) {
+        if (!_isRendering) {
+            
+            return;
+        }
+        
+        if (Time.realtimeSinceStartup <= _fadeMaxByTime ) {
             float fadeStart = _fadeMaxByTime - _fadeDelay;
             float fadeRatio = (Time.realtimeSinceStartup - fadeStart) / _fadeDelay;
 
@@ -35,5 +41,6 @@ public class FadeController : MonoBehaviour {
     public void StartFade(float fadebyTime, float fadeDelay = 2f) {
         _fadeMaxByTime = fadebyTime;
         _fadeDelay = fadeDelay;
+        _isRendering = true;
     }
 }
